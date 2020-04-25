@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs') -%>
+    
+          <div class="container card bg-dark mt-5 d-flex justify-content-space-around">
+            <div class="card-content" style="padding-bottom: 0">
+              <div class="row" style="margin-bottom: 0">
+                <div class="col">
+                  <img src="<%= displayPicture %>" alt="" class="img-responsive" width="90">
+                  </div>
+                  <div class="col">
+                  <h6><%=name%></h6>
+                  <span><%=email%></span>
+                  <br>
+                  <span><%=id%></span>
+                </div>
+                <div class="col d-flex align-items-center">
+                  <a class="btn btn-primary btn-sm" href="/logout">Logout</a>
+                  <a href="#"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+      <div class="row text-center">
+          <h3 class="header col s12 light">Next 10 events in your primary calendar</h3>
+        </div>
+      <div class="row text-center">
+        <div class="col m-8">
+          <ul class="collection">
+            <% events.forEach(function(item) { %>
+            <li class="collection-item">
+              <p><strong><%= item.start.dateTime %> - <%= item.summary %> - <%=item.end.dateTime%> </strong></p>
+            </li>
+            <% }); %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <%- include('../partials/footer.ejs') -%>

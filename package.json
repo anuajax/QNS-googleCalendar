@@ -1,0 +1,25 @@
+{
+  "name": "oauthCalendar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "nodemon ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "googleapis": "^43.0.0",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^2.0.0",
+    "query-string": "^6.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
+}
