@@ -63,6 +63,10 @@ router.get('/home', (req, res) => {
                 email: req.session.user.email,
                 events: events
             }
+        //     const arr = [];
+        //     data.events.forEach((item)=>{ arr.push(item.summary)});
+        //   res.send(arr);
+        //    //res.status(200).send(arr);
             res.render('dashboard.ejs', data);
         });  
     } else {
