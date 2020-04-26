@@ -14,7 +14,8 @@ module.exports.listEvents = function (auth, cb) {
       if (events.length) {
         cb(events)
       } else {
-        res.status(200).send("No Upcoming events!! Sorry We didn't find any events on your calendar")
+        const str = " No upcoming events found.";
+        cb(str);
         console.log('No upcoming events found.');
       }
     });
