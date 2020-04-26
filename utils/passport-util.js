@@ -21,7 +21,7 @@ passport.use(
         {
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: 'http://localhost:8080/auth/success'
+            callbackURL: 'https://qnscalgoogle.herokuapp.com/auth/success'
         },
         (accessToken, refreshToken, profile, done) => {
             const session = {
