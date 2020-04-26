@@ -6,7 +6,7 @@ require('dotenv').config()
 const googleConfig = {
     clientId: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    redirect: 'https://qnscalgoogle.herokuapp.com/auth/success'
+    redirect: 'http://localhost:8080/auth/success'
 }
 
 // scopes use for the application

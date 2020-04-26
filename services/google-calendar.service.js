@@ -11,11 +11,11 @@ module.exports.listEvents = function (auth, cb) {
     }, (err, res) => {
       if (err) return console.log('The API returned an error: ' + err);
       const events = res.data.items;
+      const empty = "No EVENTS FOUND";
       if (events.length) {
         cb(events)
       } else {
-        const str = " No upcoming events found.";
-        cb(str);
+        cb(events)
         console.log('No upcoming events found.');
       }
     });
