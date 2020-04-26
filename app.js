@@ -17,10 +17,8 @@ app.use(
       resave: false,
       secret: 'sssh, quiet! it\'s a secret!',
       cookie: {
-        path: "/auth/success",
         maxAge: 1000 * 60 * 60 * 2,
         sameSite: true,
-        httpOnly: true,
         secure: true
       }
     })
