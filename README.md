@@ -4,6 +4,7 @@ In this simple application we authenticate user with Google OAuth 2.0 and use th
 
 ## To use this repo on your computer:
   1. Go to your Command Line, in desired location, type  :
+  
           git clone https://github.com/anuajax/QNS-googleCalendar.git
           cd QNS-googleCalendar
           npm install
@@ -16,7 +17,14 @@ In this simple application we authenticate user with Google OAuth 2.0 and use th
    3. Then run:
             
             node app.js
-          
+   4. From the browser: 
+            
+            http://localhost:8080/
+            
+  When you run you will get the home page click the button, it will prompt you to login from gmail choose your gmail account.
+  After successful signin, it may show a warning that "This App is not verified" if you trust my app or not.
+  Just click on Advanced > Go to Quickstart(unsafe) ..dont worry it will just give you a warning that this app is accessing your           calendar(Google has their security concerns with your account).Click on allow access and you'll see your events. 
+      
 ## App setup and Workflow:
 ##  1.Initialize project:
    We initialize the project npm init and create app.js file and install all dependencies.
