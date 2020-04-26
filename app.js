@@ -24,10 +24,10 @@ app.use(
     })
   )
 // index route
-app.use('', indexRoutes);
+app.use(indexRoutes);
 
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=> {
 console.log(`SERVER ACTIVE ON PORT ${PORT}`)
 })

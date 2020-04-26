@@ -6,7 +6,7 @@ require('dotenv').config()
 const googleConfig = {
     clientId: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    redirect: 'http://localhost:8080/auth/success'
+    redirect: 'http://localhost:3000/auth/success'
 }
 
 // scopes use for the application
