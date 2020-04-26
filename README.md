@@ -27,7 +27,18 @@ In this simple application we authenticate user with Google OAuth 2.0 and use th
       
 ## App setup and Workflow:
 ##  1.Initialize project:
-   We initialize the project npm init and create app.js file and install all dependencies.
+   We initialize the project npm init and create app.js file and install all dependencies.Create a server in app.js file.
+   
+    //installing dependencies from command line
+    npm install dotenv ejs express express-session googleapis@43.0.0 passport passport-google-oauth20 query-string --save
+    
+    #creating server in app.js file
+    
+    const PORT = process.env.PORT || 8080;
+    app.listen(PORT,()=> {
+    console.log(`SERVER ACTIVE ON PORT ${PORT}`)
+    })
+    
 ##  2.Create Application using Google API Console.
   Acquiring Client ID and Client secret of the application we created as well as setting authorized origins and   redirect URIs. This client ID and client secret will be used to identify and create connection between Google OAuth Client and our application.
   We will save client id and client secret as a environment variable in .env file.
