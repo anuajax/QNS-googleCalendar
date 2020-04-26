@@ -1,6 +1,7 @@
 # QNS Google Calendar Events
 ## About the app
 In this simple application we authenticate user with Google OAuth 2.0 and use the authentication token to call Google API to retrieve protected data, in this case next 20 events from the primary calendar.
+Tech Used: HTML,CSS,Express,NodeJS,Passport.js,Google oAuth API,Google Calendar API.
 
 ## To use this repo on your computer:
   1. Go to your Command Line, in desired location, type  :
