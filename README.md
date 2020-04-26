@@ -120,11 +120,29 @@ In this simple application we authenticate user with Google OAuth 2.0 and use th
    ##  5.Creating Express routes with Node.js
  For this we create a Node.js Express server. I used ejs(plain and simple) for rendering html and session management I used express-    sessions library.
  Add the routes :
-     
+ First route to index page start of application(localhost:8080)
+ 
+      router.get('/', (req, res) => {
+      res.render('index.ejs');
+     });
+On Clicking login button from index page: 
+
      //This will redirect to the Authentication url generated in Step 3.
      router.get('/login', (req, res) => {
     res.redirect(googleUtil.urlGoogle());
       });
+  Passport Authentication Routes defining scopes to accces on authentication
+  
+      router.get('/login', passport.authenticate('google', {
+    scope: [
+        'profile',
+        'email'
+    ]
+    }));
+
+    router.get('/auth/success', passport.authenticate('google'), (req, res) => {
+    res.redirect('/home');
+    });
   /home route will check for check for session and if user is authenticated and redirect and render the dashboard with events.
   But to extract the events , we need one more file explained in step 6.
       
