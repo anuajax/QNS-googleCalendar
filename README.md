@@ -1,8 +1,24 @@
 # QNS Google Calendar Events
 ## About the app
 In this simple application we authenticate user with Google OAuth 2.0 and use the authentication token to call Google API to retrieve protected data, in this case next 20 events from the primary calendar.
+
+## To use this repo on your computer:
+  1. Go to your Command Line, in desired location, type  :
+          git clone https://github.com/anuajax/QNS-googleCalendar.git
+          cd QNS-googleCalendar
+          npm install
+  2. Create a .env file and inside that put the following:
+                                 
+         GOOGLE_CLIENT_ID = YOUR CLIENT ID From developers console project.        
+         GOOGLE_CLIENT_SECRET = YOUR CLIENT Secret From developers console project.
+         SESSION_NAME = "GoogleOAuthSession"
+         SESSION_SECRET = "secretsecret"
+   3. Then run:
+            
+            node app.js
+          
 ## App setup and Workflow:
-##  1.Initialize ptoject:
+##  1.Initialize project:
    We initialize the project npm init and create app.js file and install all dependencies.
 ##  2.Create Application using Google API Console.
   Acquiring Client ID and Client secret of the application we created as well as setting authorized origins and   redirect URIs. This client ID and client secret will be used to identify and create connection between Google OAuth Client and our application.
