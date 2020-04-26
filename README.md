@@ -117,12 +117,48 @@ In this simple application we authenticate user with Google OAuth 2.0 and use th
                }
         )
        );
-##  5.Access Protected Resources
+   ##  5.Creating Express routes with Node.js
+ For this we create a Node.js Express server. I used ejs(plain and simple) for rendering html and session management I used express-    sessions library.
+ Add the routes :
+     
+     //This will redirect to the Authentication url generated in Step 3.
+     router.get('/login', (req, res) => {
+    res.redirect(googleUtil.urlGoogle());
+      });
+  /home route will check for check for session and if user is authenticated and redirect and render the dashboard with events.
+  But to extract the events , we need one more file explained in step 6.
+      
+      router.get('/home', (req, res) => {
+    // check for valid session
+    if (req.session.user) {
+    // get oauth2 client
+     const oauth2Client = new google.auth.OAuth2();
+      oauth2Client.setCredentials({
+       access_token: req.session.user.accessToken
+        });
+    // get calendar events by passing oauth2 client
+        googleCalenderService.listEvents(oauth2Client, (events) => {  
+            console.log(events);
+                const data = {
+                name: req.session.user.name,
+                displayPicture: req.session.user.displayPicture,
+                id: req.session.user.id,
+                email: req.session.user.email,
+                events: events
+            }
+            res.render('dashboard.ejs', data);
+         });  
+      } else {
+        res.redirect('/login')
+      }
+    });
+##  6.Access Protected Resources
   Now our app is authorized to access protected information of the user. To access the protected information we have to call the            relevant Google API by passing our authorized oauth2 client.
 ## code
-               module.exports.listEvents = function (auth, cb) {
-         const calendar = google.calendar({version: 'v3', auth});
-        calendar.events.list({
+      const { google } = require('googleapis');
+      module.exports.listEvents = function (auth, cb) {
+      const calendar = google.calendar({version: 'v3', auth});
+      calendar.events.list({
       calendarId: 'primary',
       timeMin: (new Date()).toISOString(),
       maxResults: 20,
@@ -140,7 +176,7 @@ In this simple application we authenticate user with Google OAuth 2.0 and use th
   }
 ## continued..
   By this we can access the personal profile information calling oauth2 API.
-       Our application purpose is to access to google calendar events. It just simple as the above request. We pass our authorized                 oauth2 client to calendar API and the API will send the requested information.
-##  6.Finally creating Express server with Node.js
- For this we create a Node.js Express server. I used ejs(plain and simple) for rendering html and session management I used express-sessions library. 
-      Add somed styling with Bootstrap and css.
+  Our application purpose is to access to google calendar events. It just simple as the above request. We pass our authorized             oauth2 client to calendar API and the API will send the requested information.
+
+   Add somed styling with Bootstrap and css.
+      
