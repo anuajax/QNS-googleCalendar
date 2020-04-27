@@ -13,13 +13,13 @@ app.use(express.static('public'))
 app.use(
     session({
       name: 'anu',
-      saveUninitialized: true,
+      saveUninitialized: false,
       resave: false,
       secret: 'sssh, quiet! it\'s a secret!',
       cookie: {
         maxAge: 1000 * 60 * 60 * 2,
         sameSite: true,
-        secure: true
+        secure: process.env.NODE_ENV === 'production'
       }
     })
   )

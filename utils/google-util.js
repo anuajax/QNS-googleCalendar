@@ -8,7 +8,8 @@ const googleConfig = {
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     redirect: 'http://localhost:3000/auth/success'
 }
-
+//http://localhost:3000
+//https://qnscalgoogle.herokuapp.com
 // scopes use for the application
 const defaultScope = [
     'https://www.googleapis.com/auth/calendar.events.readonly',
