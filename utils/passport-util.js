@@ -24,7 +24,7 @@ passport.use(
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
             callbackURL: process.env.NODE_ENV === "production"
-            ? `http://qnscalgoogle.herokuapp.com:${port}/auth/success`
+            ? `https://qnscalgoogle.herokuapp.com/auth/success`
             : `http://localhost:3000/auth/success`,
           passReqToCallback: true,
         },
