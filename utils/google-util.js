@@ -1,12 +1,16 @@
-const { google } = require('googleapis');
-
 require('dotenv').config()
+const { google } = require('googleapis');
+const HOST = 'http://127.0.0.1';
+const PORT = process.env.PORT || 3000;
 
 // google app config
 const googleConfig = {
     clientId: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    redirect: 'https://qnscalgoogle.herokuapp.com/auth/success'
+    redirect:  process.env.NODE_ENV === "production"
+    ? `${HOST}/auth/success`
+    : `${HOST}:${PORT}/auth/success`,
+  passReqToCallback: true,
 }
 //http://localhost:3000
 //https://qnscalgoogle.herokuapp.com

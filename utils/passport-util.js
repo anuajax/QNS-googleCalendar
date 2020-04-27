@@ -1,7 +1,9 @@
-const passport = require('passport');
-const googleStrategy = require('passport-google-oauth20');
 require('dotenv').config();
 
+const passport = require('passport');
+const googleStrategy = require('passport-google-oauth20');
+const HOST = 'http://127.0.0.1';
+const PORT = process.env.PORT || 3000;
 passport.serializeUser((user, done) => {
     const session = {
         id: user.gooogleID,
@@ -21,7 +23,10 @@ passport.use(
         {
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: 'https://qnscalgoogle.herokuapp.com/auth/success'
+            callbackURL: process.env.NODE_ENV === "production"
+            ? `${HOST}/auth/success`
+            : `${HOST}:${PORT}/auth/success`,
+          passReqToCallback: true,
         },
         (accessToken, refreshToken, profile, done) => {
             const session = {
